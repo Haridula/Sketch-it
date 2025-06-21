@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #1e1e2e;
+  --color-surface1: #313244;
+  --color-subtext1: #bac2de;
+  --color-main: #cdd6f4;
+}
+
+.loader div:nth-child(1){
+    animation-delay: 0.05s;
+}
+
+.loader div:nth-child(2){
+    animation-delay: 0.2s;
+}
+
+.loader div:nth-child(3){
+    animation-delay: 0.35s;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(12.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.appear {
+  animation: appear 4s forwards;
+}
+
+@keyframes enlarge-step {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(4);
+  }
+}
+
+.enlarge-step-text {
+  animation: enlarge-step 2s steps(1, end) forwards;
+  display: inline-block;
+}
