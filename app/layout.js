@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={Hack.className}>
-      <body className="text-text text-main bg-background">
+      <body className="text-text text-main">
         <Loader />
         {children}
       </body>

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+  background: #1e1e2e;
+}
+
 @theme {
   --color-background: #1e1e2e;
   --color-surface1: #313244;
@@ -22,11 +26,11 @@
 @keyframes appear {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(100px);
   }
   50% {
     opacity: 0;
-    transform: translateY(12.5px);
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
@@ -38,19 +42,21 @@
   animation: appear 4s forwards;
 }
 
-@keyframes enlarge-step {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(2);
-  }
-  100% {
-    transform: scale(4);
-  }
+.appear-text {
+  animation: appear 1.5s;
 }
 
-.enlarge-step-text {
-  animation: enlarge-step 2s steps(1, end) forwards;
-  display: inline-block;
+.appear-text1 {
+  animation: appear 3s;
+}
+
+.enlarge {
+  scale: 4;
+}
+
+.fixed-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
