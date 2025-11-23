@@ -5,7 +5,7 @@ admin.initializeApp();
 const db = admin.firestore();
 const bucket = admin.storage().bucket();
 
-const MAX_USER_BYTES = 100 * 1024 * 1024; // 100 MB
+const MAX_USER_BYTES = 1 * 1024 * 1024; // 1 MB
 const MAX_GLOBAL_BYTES = 1024 * 1024 * 1024; // 1 GB
 
 exports.storageLimiter = functions.storage.object().onFinalize(async (object) => {
