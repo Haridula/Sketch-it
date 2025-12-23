@@ -26,9 +26,9 @@ export default function Home() {
         <span className="appear-text">Sketch</span> <span className="appear-text1">it!</span>
       </h1>
       <Link href="/sketch">
-        <p className="text-4xl border rounded-sm mt-9 appear">
-          try out
-        </p>
+        <h1 className="text-4xl border rounded-sm mt-9 appear">
+          <p className="mx-1 mt-1 mb-1">try out</p>
+        </h1>
       </Link>
       <Image
         alt=""
@@ -38,14 +38,14 @@ export default function Home() {
         className="appear mt-64"
       />
       </div>
+
+      {/* Mobile */}
       <div className="h-64 items-center gap-y-5 flex flex-col min-w-full md:hidden">
       <h1 className="font-bold text-sm enlarge-step-text enlarge">
         <span className="appear-text">Sketch</span> <span className="appear-text1">it!</span>
       </h1>
-      <Link href="/sketch">
-        <p className="text-4xl border rounded-sm mt-4 appear">
-          try out
-        </p>
+      <Link className="text-4xl border rounded-sm mt-4 appear" href="/sketch">
+        <p className="text-2xl">try out</p>
       </Link>
       <Image
         alt=""
