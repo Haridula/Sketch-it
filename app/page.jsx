@@ -45,7 +45,7 @@ export default function Home() {
         <span className="appear-text">Sketch</span> <span className="appear-text1">it!</span>
       </h1>
       <Link className="text-4xl border rounded-sm mt-4 appear" href="/sketch">
-        <p className="text-2xl">try out</p>
+        <p className="text-2xl mx-1 mt-1 mb-1">try out</p>
       </Link>
       <Image
         alt=""

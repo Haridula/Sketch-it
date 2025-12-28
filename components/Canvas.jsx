@@ -48,21 +48,16 @@ export default function Canvas() {
     }
   }
 
-  const saveImage = async () => {
-    if (!ip) {
-      alert("try again in a moment.");
-      return;
-    }
-
+   const saveImage = async () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
+    // Convert canvas to blob
     canvas.toBlob(
       async (blob) => {
         if (!blob) return;
 
-        const filename = `drawing-${ip}-${Date.now()}.png`;
-        const path = `drawings/${ip}/${filename}`;
+        const filename = `sketch-${ip}-${Date.now()}.png`;
+        const path = `sketches/${ip}/${filename}`;
 
         const storageRef = ref(storage, path);
 
@@ -81,8 +76,8 @@ export default function Canvas() {
           storagePath: path,
           createdAt: serverTimestamp(),
         });
-
-        alert("Saved to Firestore.");
+        setDrawing(0);
+        alert("Success 😎");
       },
       "image/png",
       1.0
