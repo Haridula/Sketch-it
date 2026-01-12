@@ -274,9 +274,11 @@ export default function Canvas({ drawing, setDrawing }) {
         <button className="border rounded mx-4" onClick={toggleEraser}>
           <p className="mx-1">{isEraser ? "Mode: Erase" : "Mode: Draw"}</p>
         </button>
-        <button className="border rounded ml-auto" onClick={saveImage}>
-          <p className="mx-1">Save</p>
+        <div className="ml-auto">
+        <button className="border rounded" onClick={saveImage}>
+          <p className="mx-1 mt-1 mb-1">Save</p>
         </button>
+        </div>
       </div>
     </div>
   );

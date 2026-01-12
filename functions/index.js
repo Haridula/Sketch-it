@@ -12,7 +12,7 @@ exports.storageLimiter = functions.storage.object().onFinalize(async (object) =>
   try {
     const filePath = object.name;
     const fileSize = Number(object.size || 0);
-    const ip = object.metadata?.ip;  // <- correct
+    const ip = object.metadata?.ip;
 
     // ---------- 1. GLOBAL LIMIT ----------
     const [allFiles] = await bucket.getFiles();
