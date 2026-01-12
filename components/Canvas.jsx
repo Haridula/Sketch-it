@@ -55,7 +55,6 @@ export default function Canvas({ drawing, setDrawing }) {
     if (!canvas) return;
     setIsSaving(true);
     // Convert canvas to blob
-    if (isSaving === true) {
     canvas.toBlob(
       async (blob) => {
         if (!blob) return;
@@ -88,7 +87,7 @@ export default function Canvas({ drawing, setDrawing }) {
       1.0
     );
   };
-  }
+  
   // Canvas Drawing Logic
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -278,7 +277,7 @@ export default function Canvas({ drawing, setDrawing }) {
           <p className="mx-1">{isEraser ? "Mode: Erase" : "Mode: Draw"}</p>
         </button>
         <div className="ml-auto">
-        <button className="border rounded" onClick={saveImage} disabled={isSaving}>
+        <button className="border rounded" onClick={() => setIsSaving(true) & saveImage()}>
           <p className="mx-1 mt-1 mb-1">{isSaving ? "Saving..." : "Save"}</p>
         </button>
         </div>
