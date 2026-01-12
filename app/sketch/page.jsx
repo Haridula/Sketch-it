@@ -49,7 +49,7 @@ export default function Sketch() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 600) {
         setDisplayCount(prev => prev + 12);
       }
     };
