@@ -49,7 +49,8 @@ export default function Sketch() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2000 && displayCount < images.length) {
+      const scrollThreshold = Math.max(window.innerHeight, 800);
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - scrollThreshold && displayCount < images.length) {
         setDisplayCount(prev => prev + 12);
       }
     };
