@@ -11,6 +11,7 @@ export default function Canvas({ drawing, setDrawing }) {
   const [isDrawing, setIsDrawing] = useState(false);
   const [ip, setIP] = useState("");
   const [isEraser, setIsEraser] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   // History for undo/redo: stores dataURLs
@@ -52,7 +53,9 @@ export default function Canvas({ drawing, setDrawing }) {
    const saveImage = async () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    setIsSaving(true);
     // Convert canvas to blob
+    if (isSaving === true) {
     canvas.toBlob(
       async (blob) => {
         if (!blob) return;
@@ -85,7 +88,7 @@ export default function Canvas({ drawing, setDrawing }) {
       1.0
     );
   };
-  
+  }
   // Canvas Drawing Logic
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -275,8 +278,8 @@ export default function Canvas({ drawing, setDrawing }) {
           <p className="mx-1">{isEraser ? "Mode: Erase" : "Mode: Draw"}</p>
         </button>
         <div className="ml-auto">
-        <button className="border rounded" onClick={saveImage}>
-          <p className="mx-1 mt-1 mb-1">Save</p>
+        <button className="border rounded" onClick={saveImage} disabled={isSaving}>
+          <p className="mx-1 mt-1 mb-1">{isSaving ? "Saving..." : "Save"}</p>
         </button>
         </div>
       </div>
