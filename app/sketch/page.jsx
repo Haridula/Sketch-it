@@ -61,7 +61,7 @@ export default function Sketch() {
   return (
     <div>
       <div className="mb-16 w-full relative flex justify-center items-center">
-      {drawing === 0 ?<button className="mt-6 border rounded" onClick={() => setDrawing(1)}><p className="mx-12 mt-1 mb-1 text-xl">sketch</p></button> : <></>}
+      {drawing === 0 ?<button className="mt-6 border rounded w-64" onClick={() => setDrawing(1)}><p className="mx- mt-1 mb-1 text-xl">sketch</p></button> : <></>}
       <br className="border"/>
       </div>
       {drawing === 1 ? <div className="fixed inset-0 flex items-center justify-center z-50"><Canvas drawing={drawing} setDrawing={setDrawing} /></div> : <></>}
@@ -76,10 +76,11 @@ export default function Sketch() {
               src={url}
               width={400}
               height={400}
+              className="border border-main rounded"
             />
           ))
         ) : (
-          <p>No images found</p>
+          <p>No images uploaded</p>
         )}
       </div>
     </div>

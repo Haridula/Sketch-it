@@ -11,6 +11,7 @@ export default function Canvas({ drawing, setDrawing }) {
   const [isDrawing, setIsDrawing] = useState(false);
   const [ip, setIP] = useState("");
   const [isEraser, setIsEraser] = useState(false);
+  let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   // History for undo/redo: stores dataURLs
   const historyRef = useRef([]);
@@ -90,9 +91,14 @@ export default function Canvas({ drawing, setDrawing }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    canvas.width = window.innerWidth * 0.5;
-    canvas.height = window.innerWidth * 0.4;
-
+    if (isMobile) {
+      canvas.width = window.innerWidth * 0.9;
+      canvas.height = window.innerWidth * 0.8;
+    } else {
+      canvas.width = window.innerWidth * 0.45;
+      canvas.height = window.innerWidth * 0.4;
+    }
+    
     const ctx = canvas.getContext("2d");
     ctx.lineWidth = 3;
     ctx.lineCap = "round";
@@ -241,7 +247,7 @@ export default function Canvas({ drawing, setDrawing }) {
   const toggleEraser = () => setIsEraser((s) => !s);
   return (
     <div>
-      <div className="mb-1 flex">
+      <div className="mb-2 flex">
         <div/>
         <button className="border rounded ml-auto" onClick={() => setDrawing(0)}><p className="mx-2">x</p></button>
       </div>
