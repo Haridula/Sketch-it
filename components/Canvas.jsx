@@ -51,9 +51,9 @@ export default function Canvas({ drawing, setDrawing }) {
   }
 
    const saveImage = async () => {
+
     const canvas = canvasRef.current;
     if (!canvas) return;
-    setIsSaving(true);
     // Convert canvas to blob
     canvas.toBlob(
       async (blob) => {
@@ -277,7 +277,7 @@ export default function Canvas({ drawing, setDrawing }) {
           <p className="mx-1">{isEraser ? "Mode: Erase" : "Mode: Draw"}</p>
         </button>
         <div className="ml-auto">
-        <button className="border rounded" onClick={() => setIsSaving(true) & saveImage()}>
+        <button className="border rounded" onClick={() => setIsSaving(true) & saveImage()} disabled={isSaving}>
           <p className="mx-1 mt-1 mb-1">{isSaving ? "Saving..." : "Save"}</p>
         </button>
         </div>
