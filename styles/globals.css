@@ -62,5 +62,9 @@
 }
 
 .blur {
-  filter: blur(2px);
+  filter: blur(10px);
+}
+
+.non-interactive {
+  pointer-events: none;
 }

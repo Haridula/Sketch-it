@@ -6,7 +6,7 @@ import {ref, uploadBytes, getDownloadURL, deleteObject, getMetadata, } from "fir
 import { collection, addDoc, serverTimestamp, doc, updateDoc, increment, } from "firebase/firestore";
 import { storage, db } from "../firebaseConfig";
 
-export default function Canvas() {
+export default function Canvas({ drawing, setDrawing }) {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [ip, setIP] = useState("");
@@ -77,7 +77,8 @@ export default function Canvas() {
           createdAt: serverTimestamp(),
         });
         setDrawing(0);
-        alert("Success 😎");
+        alert("Success :)");
+        location.reload(); 
       },
       "image/png",
       1.0
@@ -239,7 +240,11 @@ export default function Canvas() {
 
   const toggleEraser = () => setIsEraser((s) => !s);
   return (
-    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div>
+      <div className="mb-1 flex">
+        <div/>
+        <button className="border rounded ml-auto" onClick={() => setDrawing(0)}><p className="mx-2">x</p></button>
+      </div>
       <canvas
         ref={canvasRef}
         className="border rounded"
@@ -255,10 +260,10 @@ export default function Canvas() {
 
       <div className="flex mt-2">
         <button className="border rounded mr-4" onClick={undo}>
-          <p className="mx-2 text-2xl">←</p>
+          <p className="mx-3 text-2xl">←</p>
         </button>
-        <button className="border rounded mx-4" onClick={redo}>
-          <p className="mx-2 text-2xl">→</p>
+        <button className="border rounded ml-2 mr-6" onClick={redo}>
+          <p className="mx-3 text-2xl">→</p>
         </button>
         <button className="border rounded mx-4" onClick={toggleEraser}>
           <p className="mx-1">{isEraser ? "Mode: Erase" : "Mode: Draw"}</p>

@@ -62,7 +62,7 @@ export default function Home() {
         alt="tree"
         className="hidden md:block appear"
       />
-      <audio id="my_audio" src="/audio/sketchit.ogg"/>
+      <audio id="my_audio" src="/audio/sketchit.mp3"/>
     </div>
   );
 }
